@@ -1,24 +1,18 @@
 import javax.swing.*;
 import java.awt.*;
 public class CalculadoraGUI {
-    //Cria uma janela já com um título.
-    JFrame janela = new JFrame("Calculadora");
-    //Cria um visor.
-    JLabel display = new JLabel();
-    //Cria um array de botões com 18 posições.
-    JButton[] btn = new JButton[20];
+
+    JFrame janela = new JFrame("Calculadora"); //Cria uma janela com um título.
+    JLabel display = new JLabel(); //Cria um display.
+    JButton[] btn = new JButton[20]; //Cria um array de botões com 20 posições.
+
     public CalculadoraGUI() {
         janela.setLayout(null);
-        //Define as dimensões da janela
-        janela.setSize(250, 400);
-        //Define que a janela ao ser fechada deve encerrar a aplicação.
-        janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //Define que a janela não será redimensionável.
-        janela.setResizable(false);
-        //Define que a janela será aberta no centro da tela.
-        janela.setLocationRelativeTo(null);
-        //Define que a janela será visível.
-        janela.setVisible(true);
+        janela.setSize(250, 400); //Define as dimensões da janela
+        janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Define que a janela ao ser fechada deve encerrar a aplicação.
+        janela.setResizable(false); //Define que a janela não será redimensionável.
+        janela.setLocationRelativeTo(null); //Define que a janela será aberta no centro da tela.
+        janela.setVisible(true); //Define que a janela será visível.
 
         //Instancia os botões.
         btn[0] = new JButton("9");
@@ -42,76 +36,38 @@ public class CalculadoraGUI {
         btn[18] = new JButton("+");
         btn[19] = new JButton("=");
 
-        //Define o tamanho do display e dos botões.
-        display.setSize(230, 60);
-        btn[0].setSize(50, 50);
-        btn[1].setSize(50, 50);
-        btn[2].setSize(50, 50);
-        btn[3].setSize(50, 50);
-        btn[4].setSize(50, 50);
-        btn[5].setSize(50, 50);
-        btn[6].setSize(50, 50);
-        btn[7].setSize(50, 50);
-        btn[8].setSize(50, 50);
-        btn[9].setSize(50, 50);
-        btn[10].setSize(50, 50);
-        btn[11].setSize(50, 50);
-        btn[12].setSize(50, 50);
-        btn[13].setSize(50, 50);
-        btn[14].setSize(50, 50);
-        btn[15].setSize(50, 50);
-        btn[16].setSize(50, 50);
-        btn[17].setSize(50, 50);
-        btn[18].setSize(50, 50);
-        btn[19].setSize(50, 50);
-
-        //Adiciona o display e os botões a janela.
-        janela.add(display);
-        janela.add(btn[0]);
-        janela.add(btn[1]);
-        janela.add(btn[2]);
-        janela.add(btn[3]);
-        janela.add(btn[4]);
-        janela.add(btn[5]);
-        janela.add(btn[6]);
-        janela.add(btn[7]);
-        janela.add(btn[8]);
-        janela.add(btn[9]);
-        janela.add(btn[10]);
-        janela.add(btn[11]);
-        janela.add(btn[12]);
-        janela.add(btn[13]);
-        janela.add(btn[14]);
-        janela.add(btn[15]);
-        janela.add(btn[16]);
-        janela.add(btn[17]);
-        janela.add(btn[18]);
-        janela.add(btn[19]);
-
-        //Define a posição dos botões.
-        display.setLocation(10, 10);
-        btn[0].setLocation(10, 85);
-        btn[1].setLocation(70, 85);
-        btn[2].setLocation(130, 85);
-        btn[10].setLocation(190, 85);
-        btn[3].setLocation(10, 140);
-        btn[4].setLocation(70, 140);
-        btn[5].setLocation(130, 140);
-        btn[11].setLocation(190, 140);
-        btn[6].setLocation(10, 195);
-        btn[7].setLocation(70, 195);
-        btn[8].setLocation(130, 195);
-        btn[15].setLocation(190, 195);
-        btn[13].setLocation(10, 250);
-        btn[9].setLocation(70, 250);
-        btn[14].setLocation(130, 250);
-        btn[12].setLocation(190, 250);
-        btn[17].setLocation(10, 305);
-        btn[16].setLocation(70, 305);
-        btn[18].setLocation(130, 305);
-        btn[19].setLocation(190, 305);
-
+        display.setSize(230, 60); //Define o tamanho do display.
+        janela.add(display); //Adiciona o display à janela.
+        display.setLocation(10, 10); //Define a posição do display.
         display.setOpaque(true);
         display.setBackground(Color.BLACK);
+
+        criarComponente(btn[0],50,50,10,85);
+        criarComponente(btn[1],50,50,70,85);
+        criarComponente(btn[2],50,50,130,85);
+        criarComponente(btn[10],50,50,190,85);
+        criarComponente(btn[3],50,50,10,140);
+        criarComponente(btn[4],50,50,70,140);
+        criarComponente(btn[5],50,50,130,140);
+        criarComponente(btn[11],50,50,190,140);
+        criarComponente(btn[6],50,50,10,195);
+        criarComponente(btn[7],50,50,70,195);
+        criarComponente(btn[8], 50,50,130,195);
+        criarComponente(btn[15],50,50,190,195);
+        criarComponente(btn[13],50,50,10,250);
+        criarComponente(btn[9],50,50,70,250);
+        criarComponente(btn[14],50,50,130,250);
+        criarComponente(btn[12],50,50,190,250);
+        criarComponente(btn[17],50,50,10,305);
+        criarComponente(btn[16],50,50,70,305);
+        criarComponente(btn[18],50,50,130,305);
+        criarComponente(btn[19],50,50, 190,305);
+    }
+
+    // Método que cria, define a posição e o tamanho dos botões.
+    public void criarComponente(Component component, int width, int height, int x, int y) {
+        janela.add(component);
+        component.setSize(width, height);
+        component.setLocation(x, y);
     }
  }
